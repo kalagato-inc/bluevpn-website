@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Minus } from 'lucide-react';
 import clsx from 'clsx';
+import { trackEvent } from "@/app/lib/analytics";
 
 const faqs = [
   {
@@ -53,7 +54,11 @@ export function FAQ() {
               )}
             >
               <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                onClick={() => {
+                  const opening = openIndex !== index;
+                  setOpenIndex(opening ? index : null);
+                  if (opening) trackEvent("faq_expand", { question: faq.question, question_index: index });
+                }}
                 className="w-full flex items-center justify-between p-6 text-left focus:outline-none font-[Space_Grotesk]"
               >
                 <span className={clsx("font-semibold text-lg pr-8 transition-colors", openIndex === index ? "text-blue-400" : "text-white")}>

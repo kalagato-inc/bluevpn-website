@@ -2,6 +2,7 @@ import { Twitter, Instagram, Linkedin, Facebook } from 'lucide-react';
 import Logo from "@/imports/Frame2147223268";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { Link } from "react-router-dom";
+import { trackEvent } from "@/app/lib/analytics";
 
 export function Footer() {
   const { t } = useLanguage();
@@ -40,7 +41,7 @@ export function Footer() {
             <h4 className="font-bold text-white mb-6 font-[Space_Grotesk]">{t.footer.product}</h4>
             <ul className="space-y-4 font-[Space_Grotesk]">
                 <li><a href="/#features" className="text-slate-400 hover:text-blue-400 transition-colors">{t.footer.features}</a></li>
-                <li><a href="https://apps.apple.com/us/app/fast-vpn-turbo-ip-changer/id6444899367" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">{t.footer.downloadiOS}</a></li>
+                <li><a href="https://apps.apple.com/us/app/fast-vpn-turbo-ip-changer/id6444899367" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("download_click", { location: "footer", platform: "ios" })} className="text-slate-400 hover:text-blue-400 transition-colors">{t.footer.downloadiOS}</a></li>
             </ul>
           </div>
 

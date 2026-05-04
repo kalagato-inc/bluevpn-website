@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { LanguageSelector } from "@/app/components/LanguageSelector";
 import Logo from "@/imports/Frame2147223268";
+import { trackEvent } from "@/app/lib/analytics";
 
 export function Navbar() {
   const { t } = useLanguage();
@@ -80,6 +81,7 @@ export function Navbar() {
                         <a
                           key={useCase.name}
                           href={useCase.link}
+                          onClick={() => trackEvent("use_case_click", { use_case: useCase.name.toLowerCase().replace(" ", "_"), location: "navbar" })}
                           className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-colors font-[Space_Grotesk] border-b border-white/5 last:border-b-0"
                         >
                           <span className="text-lg">{useCase.icon}</span>
@@ -110,6 +112,7 @@ export function Navbar() {
                 href="https://apps.apple.com/us/app/fast-vpn-turbo-ip-changer/id6444899367"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent("download_click", { location: "navbar", platform: "ios" })}
                 className="group relative inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white text-sm font-semibold rounded-lg transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-105 font-[Space_Grotesk]"
               >
                 <Download size={16} className="group-hover:animate-bounce" />
@@ -152,7 +155,10 @@ export function Navbar() {
                   <a
                     key={useCase.name}
                     href={useCase.link}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      trackEvent("use_case_click", { use_case: useCase.name.toLowerCase().replace(" ", "_"), location: "navbar_mobile" });
+                    }}
                     className="flex items-center gap-3 text-base font-medium text-slate-300 hover:text-white transition-colors px-4 py-3 rounded-lg hover:bg-white/5 font-[Space_Grotesk]"
                   >
                     <span className="text-lg">{useCase.icon}</span>
@@ -181,7 +187,10 @@ export function Navbar() {
                 href="https://apps.apple.com/us/app/fast-vpn-turbo-ip-changer/id6444899367"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  trackEvent("download_click", { location: "navbar_mobile", platform: "ios" });
+                }}
                 className="flex items-center justify-center gap-2 w-full px-5 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-base font-semibold rounded-lg shadow-lg shadow-blue-500/25 transition-all hover:shadow-blue-500/40 font-[Space_Grotesk]"
               >
                 <Download size={18} />

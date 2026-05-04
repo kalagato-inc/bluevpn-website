@@ -3,6 +3,7 @@ import { ArrowRight, ShieldCheck, Globe, Power, Lock, MapPin } from 'lucide-reac
 import DownloadHeroButton from '@/imports/Group1437253753';
 import ShinyText from '@/app/components/ui/ShinyText';
 import { useLanguage } from "@/app/context/LanguageContext";
+import { trackEvent } from "@/app/lib/analytics";
 
 export function Hero({
   badgeText,
@@ -91,10 +92,11 @@ export function Hero({
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
               >
-                <a 
+                <a
                   href="https://apps.apple.com/us/app/fast-vpn-turbo-ip-changer/id6444899367"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent("download_click", { location: "hero", platform: "ios" })}
                   className="w-[243px] h-[91px] relative cursor-pointer hover:scale-105 transition-transform duration-300 block"
                 >
                    <DownloadHeroButton />

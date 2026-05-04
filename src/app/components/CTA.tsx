@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import { trackEvent } from "@/app/lib/analytics";
 
 export function CTA() {
   return (
@@ -29,10 +30,11 @@ export function CTA() {
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                     
-                    <a 
+                    <a
                         href="https://apps.apple.com/us/app/fast-vpn-turbo-ip-changer/id6444899367"
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => trackEvent("download_click", { location: "cta_section", platform: "ios" })}
                         className="group flex items-center gap-3 bg-white hover:bg-slate-100 text-slate-900 px-7 py-3 rounded-full transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] transform hover:-translate-y-1"
                     >
                         <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24" role="img" aria-hidden="true">
