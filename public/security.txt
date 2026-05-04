@@ -1,0 +1,13 @@
+Contact: mailto:security@bluevpn.com
+Expires: 2027-05-04T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://bluevpn.com/.well-known/security.txt
+Policy: https://bluevpn.com/security-policy
+Hiring: https://bluevpn.com/careers
+
+# Our security vulnerability disclosure policy
+
+Thank you for your interest in the security of Blue VPN.
+If you discover a security vulnerability, please report it to us at security@bluevpn.com.
+
+We appreciate responsible disclosure and will respond to your report promptly.
