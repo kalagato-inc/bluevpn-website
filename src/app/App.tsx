@@ -10,6 +10,10 @@ import { Home } from "@/app/pages/Home";
 import { Blog } from "@/app/pages/Blog";
 import { BlogPost } from "@/app/pages/BlogPost";
 import { TermsAndPrivacy } from "@/app/pages/TermsAndPrivacy";
+import { StreamingVPN } from "@/app/pages/StreamingVPN";
+import { GamingVPN } from "@/app/pages/GamingVPN";
+import { TravelVPN } from "@/app/pages/TravelVPN";
+import { RemoteWorkVPN } from "@/app/pages/RemoteWorkVPN";
 
 function Layout() {
   const [showSplash, setShowSplash] = useState(true);
@@ -31,6 +35,10 @@ function Layout() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/streaming" element={<StreamingVPN />} />
+          <Route path="/gaming" element={<GamingVPN />} />
+          <Route path="/travel" element={<TravelVPN />} />
+          <Route path="/remote-work" element={<RemoteWorkVPN />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/terms" element={<TermsAndPrivacy />} />

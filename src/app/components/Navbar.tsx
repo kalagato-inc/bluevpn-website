@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, Download, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { LanguageSelector } from "@/app/components/LanguageSelector";
@@ -10,6 +10,7 @@ export function Navbar() {
   const { t } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [useCasesOpen, setUseCasesOpen] = useState(false);
 
   // Handle scroll effect for subtle shadow
   useEffect(() => {
@@ -23,6 +24,13 @@ export function Navbar() {
   const navItems = [
     { name: t.nav.features, link: "/#features" },
     { name: t.nav.blogs, link: "/blog" },
+  ];
+
+  const useCases = [
+    { name: "Streaming", link: "/streaming", icon: "📺" },
+    { name: "Gaming", link: "/gaming", icon: "🎮" },
+    { name: "Travel", link: "/travel", icon: "✈️" },
+    { name: "Remote Work", link: "/remote-work", icon: "💼" },
   ];
 
   return (
@@ -48,6 +56,41 @@ export function Navbar() {
           <div className="hidden md:flex md:items-center md:gap-8">
             {/* Nav Links */}
             <div className="flex items-center gap-1">
+              {/* Use Cases Dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => setUseCasesOpen(true)}
+                onMouseLeave={() => setUseCasesOpen(false)}
+              >
+                <button className="flex items-center gap-1 text-sm font-medium text-slate-300 hover:text-white transition-colors px-4 py-2 rounded-lg hover:bg-white/5 font-[Space_Grotesk]">
+                  Use Cases
+                  <ChevronDown size={16} className={`transition-transform ${useCasesOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                <AnimatePresence>
+                  {useCasesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-0 mt-2 w-56 rounded-2xl border border-white/10 bg-slate-950/95 backdrop-blur-xl shadow-2xl overflow-hidden"
+                    >
+                      {useCases.map((useCase, index) => (
+                        <a
+                          key={useCase.name}
+                          href={useCase.link}
+                          className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-colors font-[Space_Grotesk] border-b border-white/5 last:border-b-0"
+                        >
+                          <span className="text-lg">{useCase.icon}</span>
+                          {useCase.name}
+                        </a>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               {navItems.map((item) => (
                 <a
                   key={item.name}
@@ -100,6 +143,27 @@ export function Navbar() {
             className="md:hidden overflow-hidden border-t border-white/10 bg-slate-950/98 backdrop-blur-xl"
           >
             <div className="px-4 py-6 space-y-4">
+              {/* Mobile Use Cases Section */}
+              <div className="space-y-2">
+                <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider px-4 mb-2">
+                  Use Cases
+                </div>
+                {useCases.map((useCase) => (
+                  <a
+                    key={useCase.name}
+                    href={useCase.link}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-3 text-base font-medium text-slate-300 hover:text-white transition-colors px-4 py-3 rounded-lg hover:bg-white/5 font-[Space_Grotesk]"
+                  >
+                    <span className="text-lg">{useCase.icon}</span>
+                    {useCase.name}
+                  </a>
+                ))}
+              </div>
+
+              {/* Divider */}
+              <div className="h-px bg-white/10 my-4" />
+
               {/* Mobile Nav Links */}
               {navItems.map((item) => (
                 <a

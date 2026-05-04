@@ -47,10 +47,10 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-white mb-6 font-[Space_Grotesk]">{t.footer.useCases}</h4>
             <ul className="space-y-4 font-[Space_Grotesk]">
-                <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">{t.footer.streaming}</a></li>
-                <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">{t.footer.gaming}</a></li>
-                <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">{t.footer.travel}</a></li>
-                <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">{t.footer.remoteWork}</a></li>
+                <li><Link to="/streaming" className="text-slate-400 hover:text-blue-400 transition-colors">{t.footer.streaming}</Link></li>
+                <li><Link to="/gaming" className="text-slate-400 hover:text-blue-400 transition-colors">{t.footer.gaming}</Link></li>
+                <li><Link to="/travel" className="text-slate-400 hover:text-blue-400 transition-colors">{t.footer.travel}</Link></li>
+                <li><Link to="/remote-work" className="text-slate-400 hover:text-blue-400 transition-colors">{t.footer.remoteWork}</Link></li>
             </ul>
           </div>
 
