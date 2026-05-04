@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence } from "motion/react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { Navbar } from "@/app/components/Navbar";
 import { ParticlesBackground } from "@/app/components/ParticlesBackground";
 import { Footer } from "@/app/components/Footer";
@@ -51,10 +52,12 @@ function Layout() {
 
 export default function App() {
   return (
-    <LanguageProvider>
-      <BrowserRouter>
-        <Layout />
-      </BrowserRouter>
-    </LanguageProvider>
+    <HelmetProvider>
+      <LanguageProvider>
+        <BrowserRouter>
+          <Layout />
+        </BrowserRouter>
+      </LanguageProvider>
+    </HelmetProvider>
   );
 }

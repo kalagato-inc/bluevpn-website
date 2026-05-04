@@ -1,18 +1,45 @@
 import { useParams, Link } from "react-router-dom";
-import { blogPosts } from "@/app/data/blogPosts";
-import { ArrowLeft, Clock, Calendar, User, Share2 } from "lucide-react";
-import { motion } from "motion/react";
+import { ArrowLeft, Clock, Calendar } from "lucide-react";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { useState, useEffect } from "react";
+import { getPostBySlug, portableTextToHtml, type BlogPost as SanityBlogPost } from "@/lib/sanity";
+import { BlogPostSEO } from "@/app/components/SEO";
 
 export function BlogPost() {
   const { slug } = useParams();
   const { t } = useLanguage();
-  const post = blogPosts.find((p) => p.slug === slug);
+  const [post, setPost] = useState<SanityBlogPost | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchPost() {
+      if (!slug) return;
+
+      try {
+        const fetchedPost = await getPostBySlug(slug);
+        setPost(fetchedPost);
+      } catch (error) {
+        console.error('Error loading post:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchPost();
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center text-white pt-24">
+        <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-blue-500 border-r-transparent mb-4"></div>
+        <p className="text-slate-400">Loading blog post...</p>
+      </div>
+    );
+  }
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-[#02040a] flex flex-col items-center justify-center text-white">
-        <h1 className="text-4xl font-bold mb-4 font-[Space_Grotesk]">{t.blog.postNotFound}</h1>
+      <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center text-white pt-24">
+        <h1 className="text-4xl font-bold mb-4">{t.blog.postNotFound}</h1>
         <Link to="/blog" className="text-blue-400 hover:text-blue-300 flex items-center gap-2">
           <ArrowLeft size={20} /> {t.blog.backToBlogs}
         </Link>
@@ -21,107 +48,125 @@ export function BlogPost() {
   }
 
   const themeColors = {
-    blue: "text-blue-400 bg-blue-500/10 border-blue-500/20",
-    purple: "text-purple-400 bg-purple-500/10 border-purple-500/20",
-    emerald: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+    blue: { badge: "text-blue-400 bg-blue-500/10 border-blue-500/30", accent: "text-blue-400" },
+    purple: { badge: "text-purple-400 bg-purple-500/10 border-purple-500/30", accent: "text-purple-400" },
+    emerald: { badge: "text-emerald-400 bg-emerald-500/10 border-emerald-500/30", accent: "text-emerald-400" },
   };
 
-  const accentColor = themeColors[post.themeColor];
+  const colors = themeColors[post.themeColor];
+  const formattedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+  const htmlContent = post.body ? portableTextToHtml(post.body) : '';
 
   return (
     <>
-      <div className="pt-24 min-h-screen bg-[#02040a] relative overflow-hidden font-sans">
-         {/* Background Elements */}
-         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
-         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/10 via-slate-950/0 to-transparent pointer-events-none" />
-
-         <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12">
-            
-            {/* Back Button */}
-            <Link to="/blog" className="inline-flex items-center gap-2 text-slate-400 hover:text-white mb-8 transition-colors group">
-              <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-              <span className="font-[Space_Grotesk] font-medium">{t.blog.backToBlogs}</span>
+      <BlogPostSEO post={post} />
+      <div className="min-h-screen bg-slate-950 pt-20">
+         {/* Back Button */}
+         <div className="max-w-5xl mx-auto px-6 lg:px-12 pt-8">
+            <Link to="/blog" className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors group">
+              <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
+              <span className="font-medium">Back to Blog</span>
             </Link>
+         </div>
 
-            {/* Main Card Container */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="bg-slate-900/40 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl"
-            >
-                {/* Header Section */}
-                <header className="mb-10 text-center md:text-left">
-                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
-                       <span className={`inline-flex items-center justify-center px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border ${accentColor} self-start`}>
-                          {post.category}
-                       </span>
-                       
-                       <div className="flex flex-wrap items-center gap-4 md:gap-6 text-slate-400 text-sm font-[Space_Grotesk]">
-                          <div className="flex items-center gap-2">
-                             <User size={16} className="text-blue-500" />
-                             <span>{post.author}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                             <Calendar size={16} className="text-blue-500" />
-                             <span>{post.date}</span>
-                          </div>
-                           <div className="flex items-center gap-2">
-                             <Clock size={16} className="text-blue-500" />
-                             <span>{post.readTime}</span>
-                          </div>
-                       </div>
-                   </div>
+         {/* Article */}
+         <article className="max-w-5xl mx-auto px-6 lg:px-12 py-12 pb-24">
 
-                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight font-[Space_Grotesk] tracking-tight">
-                      {post.title}
-                   </h1>
-                </header>
+            {/* Header */}
+            <header className="mb-12 pb-12 border-b border-white/10">
+               {/* Category Badge */}
+               <div className="mb-6">
+                  <span className={`inline-flex items-center px-3 py-1 rounded-md text-xs font-semibold uppercase tracking-wider ${colors.badge}`}>
+                     {post.category}
+                  </span>
+               </div>
 
-                {/* Featured Image */}
-                <div
-                   className="w-full h-[300px] md:h-[450px] bg-slate-900/50 rounded-2xl mb-12 border border-white/5 overflow-hidden relative group"
-                >
-                    {post.image ? (
-                      <img 
-                        src={post.image} 
-                        alt={post.title} 
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#02040a] to-transparent opacity-50" />
-                    )}
-                    {!post.image && (
-                      <div className={`w-full h-full flex items-center justify-center font-mono text-lg tracking-widest ${post.themeColor === 'blue' ? 'text-blue-500/20 bg-blue-500/5' : post.themeColor === 'purple' ? 'text-purple-500/20 bg-purple-500/5' : 'text-emerald-500/20 bg-emerald-500/5'}`}>
-                         {t.blog.featuredImage}
-                      </div>
-                    )}
-                </div>
+               {/* Title */}
+               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+                  {post.title}
+               </h1>
 
-                {/* Content */}
-                <div 
-                   className="prose prose-invert prose-lg max-w-none 
-                   prose-headings:font-[Space_Grotesk] prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight
-                   prose-h2:border-t prose-h2:border-white/10 prose-h2:pt-8 prose-h2:mb-6 prose-h2:mt-16
-                   prose-h3:border-t prose-h3:border-white/10 prose-h3:pt-6 prose-h3:mb-6 prose-h3:mt-12
-                   prose-p:text-slate-300 prose-p:leading-relaxed
-                   prose-a:text-blue-400 hover:prose-a:text-blue-300 prose-a:font-medium prose-a:no-underline hover:prose-a:underline
-                   prose-strong:text-white prose-strong:font-semibold
-                   prose-blockquote:border-l-blue-500 prose-blockquote:bg-blue-500/10 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic
-                   prose-li:text-slate-300 prose-li:marker:text-blue-500"
-                   dangerouslySetInnerHTML={{ __html: post.content }}
+               {/* Excerpt */}
+               {post.excerpt && (
+                  <p className="text-xl text-slate-400 leading-relaxed mb-8 max-w-3xl">
+                     {post.excerpt}
+                  </p>
+               )}
+
+               {/* Meta Info */}
+               <div className="flex flex-wrap items-center gap-6 text-slate-400">
+                  <div className="flex items-center gap-3">
+                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
+                       {post.author.charAt(0)}
+                     </div>
+                     <div>
+                        <p className="text-white font-semibold text-sm">By {post.author}</p>
+                        <div className="flex items-center gap-4 text-xs text-slate-500">
+                           <time dateTime={post.publishedAt}>{formattedDate}</time>
+                           <span>•</span>
+                           <span>{post.readTime}</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </header>
+
+            {/* Featured Image */}
+            {post.mainImage && (
+              <div className="mb-16">
+                <img
+                  src={post.mainImage}
+                  alt={post.title}
+                  className="w-full h-auto rounded-xl"
                 />
+              </div>
+            )}
 
-                {/* Share Footer */}
-                <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-                   <span className="text-slate-400 font-[Space_Grotesk] font-medium">{t.blog.shareArticle}</span>
-                   <div className="flex gap-4">
-                      <button className="p-3 rounded-full bg-white/5 hover:bg-blue-600/20 text-slate-400 hover:text-blue-400 transition-all border border-transparent hover:border-blue-500/30">
-                         <Share2 size={20} />
-                      </button>
-                   </div>
-                </div>
-            </motion.div>
+            {/* Content */}
+            <div className="max-w-3xl">
+               <div
+                  className="article-content
+                  [&>p]:text-slate-200 [&>p]:text-[1.125rem] [&>p]:leading-[2] [&>p]:mb-8
+                  [&>p:first-of-type]:text-[1.25rem] [&>p:first-of-type]:leading-[2] [&>p:first-of-type]:text-slate-100 [&>p:first-of-type]:mb-10
+                  [&>h2]:text-white [&>h2]:text-3xl [&>h2]:font-bold [&>h2]:mt-20 [&>h2]:mb-8 [&>h2]:first:mt-0 [&>h2]:leading-[1.3]
+                  [&>h3]:text-white [&>h3]:text-2xl [&>h3]:font-bold [&>h3]:mt-16 [&>h3]:mb-6 [&>h3]:leading-[1.3]
+                  [&>h4]:text-white [&>h4]:text-xl [&>h4]:font-semibold [&>h4]:mt-12 [&>h4]:mb-4 [&>h4]:leading-[1.3]
+                  [&>ul]:my-8 [&>ul]:space-y-3
+                  [&>ol]:my-8 [&>ol]:space-y-3
+                  [&>li]:text-slate-200 [&>li]:text-[1.125rem] [&>li]:leading-[2]
+                  [&>li]:marker:text-blue-400
+                  [&>blockquote]:border-l-4 [&>blockquote]:border-blue-500 [&>blockquote]:pl-8 [&>blockquote]:py-4 [&>blockquote]:my-10 [&>blockquote]:italic [&>blockquote]:text-slate-300 [&>blockquote]:text-xl [&>blockquote]:leading-[2]
+                  [&>strong]:text-white [&>strong]:font-semibold
+                  [&>em]:italic [&>em]:text-slate-200
+                  [&>code]:text-blue-400 [&>code]:bg-slate-800/50 [&>code]:px-2 [&>code]:py-1 [&>code]:rounded [&>code]:text-sm [&>code]:font-mono
+                  [&>a]:text-blue-400 [&>a]:underline [&>a]:decoration-blue-400/30 [&>a]:underline-offset-4 [&>a]:transition-colors [&>a]:hover:text-blue-300 [&>a]:hover:decoration-blue-300
+                  [&>a.external-link]:after:content-['_↗'] [&>a.external-link]:after:text-xs [&>a.external-link]:after:opacity-70
+                  [&>a.internal-link]:font-medium
+                  [&>img]:rounded-lg [&>img]:my-12 [&>img]:w-full [&>img]:shadow-xl"
+                  dangerouslySetInnerHTML={{ __html: htmlContent }}
+               />
+            </div>
+
+            {/* Bottom CTA */}
+            <div className="mt-16 pt-12 border-t border-white/10 max-w-3xl">
+               <div className="flex items-center justify-between">
+                  <div>
+                     <p className="text-slate-500 text-sm mb-1">Article by</p>
+                     <p className="text-white font-semibold">{post.author}</p>
+                  </div>
+                  <Link
+                     to="/blog"
+                     className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium"
+                  >
+                     <ArrowLeft size={18} />
+                     Back to Blog
+                  </Link>
+               </div>
+            </div>
 
          </article>
       </div>

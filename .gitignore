@@ -17,6 +17,10 @@ pnpm-debug.log*
 .env.*
 !.env.example
 
+# Sanity
+sanity/dist/
+sanity/.sanity/
+
 # Local editor settings
 .vscode/
 .idea/
