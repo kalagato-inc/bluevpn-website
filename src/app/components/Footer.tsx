@@ -57,8 +57,8 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-white mb-6 font-[Space_Grotesk]">{t.footer.legal}</h4>
             <ul className="space-y-4 font-[Space_Grotesk]">
-                <li><Link to="/terms" className="text-slate-400 hover:text-blue-400 transition-colors">{t.footer.privacy}</Link></li>
-                <li><Link to="/terms" className="text-slate-400 hover:text-blue-400 transition-colors">{t.footer.terms}</Link></li>
+                <li><a href="https://vpn-blue.info/vpn-blue/privacy-policy/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">{t.footer.privacy}</a></li>
+                <li><a href="https://vpn-blue.info/vpn-blue/terms-of-use/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">{t.footer.terms}</a></li>
                 <li><Link to="/blog" className="text-slate-400 hover:text-blue-400 transition-colors">{t.footer.blogs}</Link></li>
             </ul>
           </div>
@@ -70,8 +70,8 @@ export function Footer() {
                 © {newDAte().getFullYear()} Blue VPN. {t.footer.copyright}
             </p>
             <div className="flex items-center gap-6">
-                <Link to="/terms" className="text-slate-500 hover:text-white text-sm transition-colors font-[Space_Grotesk]">{t.footer.privacy}</Link>
-                <Link to="/terms" className="text-slate-500 hover:text-white text-sm transition-colors font-[Space_Grotesk]">{t.footer.terms}</Link>
+                <a href="https://vpn-blue.info/vpn-blue/privacy-policy/" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white text-sm transition-colors font-[Space_Grotesk]">{t.footer.privacy}</a>
+                <a href="https://vpn-blue.info/vpn-blue/terms-of-use/" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white text-sm transition-colors font-[Space_Grotesk]">{t.footer.terms}</a>
                 <Link to="/terms" className="text-slate-500 hover:text-white text-sm transition-colors font-[Space_Grotesk]">{t.footer.cookies}</Link>
             </div>
         </div>
