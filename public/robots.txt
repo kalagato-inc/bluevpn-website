@@ -7,7 +7,7 @@ Allow: /
 Disallow: /admin/
 
 # Sitemap location
-Sitemap: https://bluevpn.com/sitemap.xml
+Sitemap: https://vpn-blue.info/sitemap.xml
 
 # Crawl delay (optional, in seconds)
 Crawl-delay: 1

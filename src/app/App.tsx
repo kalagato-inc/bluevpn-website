@@ -12,11 +12,20 @@ import { Home } from "@/app/pages/Home";
 import { Blog } from "@/app/pages/Blog";
 import { BlogPost } from "@/app/pages/BlogPost";
 import { TermsAndPrivacy } from "@/app/pages/TermsAndPrivacy";
+import { PrivacyPolicy } from "@/app/pages/PrivacyPolicy";
 import { StreamingVPN } from "@/app/pages/StreamingVPN";
 import { GamingVPN } from "@/app/pages/GamingVPN";
 import { TravelVPN } from "@/app/pages/TravelVPN";
 import { RemoteWorkVPN } from "@/app/pages/RemoteWorkVPN";
 import { initGA, trackPageView, trackEvent } from "@/app/lib/analytics";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 function useScrollDepth() {
   const location = useLocation();
@@ -72,6 +81,7 @@ function Layout() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-blue-500/30 relative">
+      <ScrollToTop />
       <Analytics />
       <AnimatePresence mode="wait">
         {shouldShowSplash && (
@@ -91,6 +101,7 @@ function Layout() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/terms" element={<TermsAndPrivacy />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </main>
       <Footer />

@@ -19,8 +19,8 @@ export function SEO({
   description,
   keywords = [],
   author,
-  image = 'https://bluevpn.com/og-image.jpg', // Default OG image
-  url = 'https://bluevpn.com',
+  image = 'https://vpn-blue.info/og-image.jpg', // Default OG image
+  url = 'https://vpn-blue.info',
   type = 'website',
   publishedTime,
   modifiedTime,
@@ -99,7 +99,7 @@ interface BlogPostSEOProps {
 
 export function BlogPostSEO({ post }: BlogPostSEOProps) {
   const slug = typeof post.slug === 'string' ? post.slug : post.slug.current;
-  const url = `https://bluevpn.com/blog/${slug}`;
+  const url = `https://vpn-blue.info/blog/${slug}`;
   const publishedTime = new Date(post.publishedAt).toISOString();
 
   // Generate JSON-LD structured data
@@ -117,7 +117,7 @@ export function BlogPostSEO({ post }: BlogPostSEOProps) {
       name: 'Blue VPN',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://bluevpn.com/logo.png',
+        url: 'https://vpn-blue.info/logo.png',
       },
     },
     datePublished: publishedTime,
