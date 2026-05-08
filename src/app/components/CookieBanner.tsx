@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Cookie, X } from "lucide-react";
-import { initGA, trackEvent } from "@/app/lib/analytics";
+import { grantConsent, denyConsent, trackEvent } from "@/app/lib/analytics";
 
 const COOKIE_KEY = "bluevpn_cookie_consent";
 
@@ -16,13 +16,14 @@ export function CookieBanner() {
   function accept() {
     localStorage.setItem(COOKIE_KEY, "accepted");
     setVisible(false);
-    initGA();
+    grantConsent();
     trackEvent("cookie_consent", { action: "accepted" });
   }
 
   function decline() {
     localStorage.setItem(COOKIE_KEY, "declined");
     setVisible(false);
+    denyConsent();
     trackEvent("cookie_consent", { action: "declined" });
   }
 

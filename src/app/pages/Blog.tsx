@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { useState, useEffect } from "react";
 import { getAllPosts, type BlogPost as SanityBlogPost } from "@/lib/sanity";
+import { trackEvent } from "@/app/lib/analytics";
 
 export function Blog() {
   const { t } = useLanguage();
@@ -18,6 +19,7 @@ export function Blog() {
         console.log('✅ Fetched posts:', fetchedPosts);
         console.log('📊 Number of posts:', fetchedPosts.length);
         setPosts(fetchedPosts);
+        trackEvent("blog_list_view", { post_count: fetchedPosts.length });
       } catch (error) {
         console.error('❌ Error loading posts:', error);
       } finally {
@@ -99,7 +101,17 @@ export function Blog() {
                     });
 
                     return (
-                      <Link to={`/blog/${slug}`} key={post._id}>
+                      <Link
+                        to={`/blog/${slug}`}
+                        key={post._id}
+                        onClick={() =>
+                          trackEvent("blog_card_click", {
+                            slug,
+                            title: post.title,
+                            category: post.category,
+                          })
+                        }
+                      >
                         <article className={`bg-gradient-to-b from-slate-900/90 to-slate-900/50 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 ${styles.hoverBorder} hover:border-white/20 transition-all duration-300 group hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 h-full flex flex-col`}>
                           {/* Image Section */}
                           <div className="h-56 bg-slate-800/50 relative overflow-hidden">
