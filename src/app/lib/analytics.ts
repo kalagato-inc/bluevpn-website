@@ -7,26 +7,45 @@ declare global {
   }
 }
 
-export function initGA() {
+function ensureGtag() {
   if (typeof window === 'undefined') return;
-  if (document.getElementById('ga-script')) return;
-
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function (...args: any[]) {
-    window.dataLayer.push(args);
-  };
-  window.gtag('js', new Date());
-  window.gtag('config', GA_ID, { send_page_view: false });
+  if (!window.gtag) {
+    window.gtag = function (...args: any[]) {
+      window.dataLayer.push(args);
+    };
+  }
+}
 
-  const script = document.createElement('script');
-  script.id = 'ga-script';
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-  document.head.appendChild(script);
+export function grantConsent() {
+  ensureGtag();
+  window.gtag('consent', 'update', {
+    ad_storage: 'granted',
+    ad_user_data: 'granted',
+    ad_personalization: 'granted',
+    analytics_storage: 'granted',
+  });
+}
+
+export function denyConsent() {
+  ensureGtag();
+  window.gtag('consent', 'update', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+  });
+}
+
+export function initGA() {
+  ensureGtag();
+  if (localStorage.getItem('bluevpn_cookie_consent') === 'accepted') {
+    grantConsent();
+  }
 }
 
 export function trackPageView(path: string) {
-  if (!window.gtag) return;
+  ensureGtag();
   window.gtag('event', 'page_view', {
     page_path: path,
     page_title: document.title,
@@ -35,6 +54,6 @@ export function trackPageView(path: string) {
 }
 
 export function trackEvent(name: string, params?: Record<string, any>) {
-  if (!window.gtag) return;
+  ensureGtag();
   window.gtag('event', name, params);
 }

@@ -4,6 +4,7 @@ import { useLanguage } from "@/app/context/LanguageContext";
 import { useState, useEffect } from "react";
 import { getPostBySlug, portableTextToHtml, type BlogPost as SanityBlogPost } from "@/lib/sanity";
 import { BlogPostSEO } from "@/app/components/SEO";
+import { trackEvent } from "@/app/lib/analytics";
 
 export function BlogPost() {
   const { slug } = useParams();
@@ -18,6 +19,17 @@ export function BlogPost() {
       try {
         const fetchedPost = await getPostBySlug(slug);
         setPost(fetchedPost);
+        if (fetchedPost) {
+          trackEvent("blog_post_view", {
+            slug,
+            title: fetchedPost.title,
+            category: fetchedPost.category,
+            author: fetchedPost.author,
+            read_time: fetchedPost.readTime,
+          });
+        } else {
+          trackEvent("blog_post_not_found", { slug });
+        }
       } catch (error) {
         console.error('Error loading post:', error);
       } finally {
