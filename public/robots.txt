@@ -1,4 +1,4 @@
-# Blue VPN Robots.txt
+# Fast Vpn Turbo Ip Changer Robots.txt
 
 User-agent: *
 Allow: /

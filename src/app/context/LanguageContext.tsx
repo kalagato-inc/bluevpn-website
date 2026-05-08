@@ -77,7 +77,7 @@ const translations: Record<Language, Translations> = {
     nav: { features: "Features", blogs: "Blogs", download: "Download Now", login: "Login" },
     hero: {
       badge: "Introducing",
-      title: "Blue VPN",
+      title: "Fast Vpn Turbo Ip Changer",
       subtitle: "Stay private online, secure every connection, and unlock the world.",
       serverList: "Server List",
       protection: "Protection",
@@ -101,7 +101,7 @@ const translations: Record<Language, Translations> = {
     },
     blog: {
       badge: "Stay Updated & Secured",
-      title: "Blue VPN Blogs",
+      title: "Fast Vpn Turbo Ip Changer Blogs",
       subtitle: "Insights, security tips, and updates from the world of digital privacy.",
       readArticle: "Read Article",
       backToBlogs: "Back to Blogs",
@@ -113,14 +113,14 @@ const translations: Record<Language, Translations> = {
       product: "Product", useCases: "Use Cases", legal: "Legal", features: "Features",
       downloadiOS: "Download iOS", streaming: "Streaming VPN", gaming: "Gaming VPN", travel: "Travel VPN",
       remoteWork: "Remote Work VPN", privacy: "Privacy Policy", terms: "Terms of Service", blogs: "Blogs",
-      cookies: "Cookies", copyright: "All rights reserved.", tagline: "Protect your privacy with secure, encrypted connections and access to the global internet with Blue VPN."
+      cookies: "Cookies", copyright: "All rights reserved.", tagline: "Protect your privacy with secure, encrypted connections and access to the global internet with Fast Vpn Turbo Ip Changer."
     }
   },
   ar: {
     nav: { features: "الميزات", blogs: "المدونة", download: "حمل الآن", login: "تسجيل الدخول" },
     hero: {
       badge: "نقدم لكم",
-      title: "Blue VPN",
+      title: "Fast Vpn Turbo Ip Changer",
       subtitle: "ابق آمناً عبر الإنترنت، وقم بتأمين كل اتصال، وافتح العالم.",
       serverList: "قائمة الخوادم",
       protection: "الحماية",
@@ -144,7 +144,7 @@ const translations: Record<Language, Translations> = {
     },
     blog: {
       badge: "ابق على اطلاع وآمن",
-      title: "مدونات Blue VPN",
+      title: "مدونات Fast Vpn Turbo Ip Changer",
       subtitle: "رؤى ونصائح أمنية وتحديثات من عالم الخصوصية الرقمية.",
       readArticle: "اقرأ المقال",
       backToBlogs: "العودة إلى المدونات",
@@ -156,14 +156,14 @@ const translations: Record<Language, Translations> = {
       product: "المنتج", useCases: "حالات الاستخدام", legal: "قانوني", features: "الميزات",
       downloadiOS: "تحميل iOS", streaming: "VPN للبث", gaming: "VPN للألعاب", travel: "VPN للسفر",
       remoteWork: "VPN للعمل عن بعد", privacy: "سياسة الخصوصية", terms: "شروط الخدمة", blogs: "المدونة",
-      cookies: "ملفات تعريف الارتباط", copyright: "جميع الحقوق محفوظة.", tagline: "احمِ خصوصيتك باتصالات مشفرة وآمنة وتمتع بالوصول إلى الإنترنت العالمي مع Blue VPN."
+      cookies: "ملفات تعريف الارتباط", copyright: "جميع الحقوق محفوظة.", tagline: "احمِ خصوصيتك باتصالات مشفرة وآمنة وتمتع بالوصول إلى الإنترنت العالمي مع Fast Vpn Turbo Ip Changer."
     }
   },
   fr: {
     nav: { features: "Fonctionnalités", blogs: "Blogs", download: "Télécharger", login: "Connexion" },
     hero: {
       badge: "Présentation",
-      title: "Blue VPN",
+      title: "Fast Vpn Turbo Ip Changer",
       subtitle: "Restez privé en ligne, sécurisez chaque connexion et débloquez le monde.",
       serverList: "Liste des serveurs",
       protection: "Protection",
@@ -187,7 +187,7 @@ const translations: Record<Language, Translations> = {
     },
     blog: {
       badge: "Restez informé & sécurisé",
-      title: "Blogs Blue VPN",
+      title: "Blogs Fast Vpn Turbo Ip Changer",
       subtitle: "Idées, conseils de sécurité et mises à jour du monde de la confidentialité numérique.",
       readArticle: "Lire l'article",
       backToBlogs: "Retour aux blogs",
@@ -199,14 +199,14 @@ const translations: Record<Language, Translations> = {
       product: "Produit", useCases: "Cas d'utilisation", legal: "Légal", features: "Fonctionnalités",
       downloadiOS: "Télécharger iOS", streaming: "VPN Streaming", gaming: "VPN Gaming", travel: "VPN Voyage",
       remoteWork: "VPN Télétravail", privacy: "Politique de confidentialité", terms: "Conditions d'utilisation", blogs: "Blogs",
-      cookies: "Cookies", copyright: "Tous droits réservés.", tagline: "Protégez votre vie privée avec des connexions sécurisées et cryptées et accédez à l'internet mondial avec Blue VPN."
+      cookies: "Cookies", copyright: "Tous droits réservés.", tagline: "Protégez votre vie privée avec des connexions sécurisées et cryptées et accédez à l'internet mondial avec Fast Vpn Turbo Ip Changer."
     }
   },
   es: {
     nav: { features: "Características", blogs: "Blogs", download: "Descargar", login: "Acceso" },
     hero: {
       badge: "Presentando",
-      title: "Blue VPN",
+      title: "Fast Vpn Turbo Ip Changer",
       subtitle: "Manténgase privado en línea, asegure cada conexión y desbloquee el mundo.",
       serverList: "Lista de servidores",
       protection: "Protección",
@@ -230,7 +230,7 @@ const translations: Record<Language, Translations> = {
     },
     blog: {
       badge: "Manténgase actualizado y seguro",
-      title: "Blogs de Blue VPN",
+      title: "Blogs de Fast Vpn Turbo Ip Changer",
       subtitle: "Información, consejos de seguridad y actualizaciones del mundo de la privacidad digital.",
       readArticle: "Leer artículo",
       backToBlogs: "Volver a los blogs",
@@ -242,14 +242,14 @@ const translations: Record<Language, Translations> = {
       product: "Producto", useCases: "Casos de uso", legal: "Legal", features: "Características",
       downloadiOS: "Descargar iOS", streaming: "VPN Streaming", gaming: "VPN Juegos", travel: "VPN Viajes",
       remoteWork: "VPN Trabajo Remoto", privacy: "Política de privacidad", terms: "Términos de servicio", blogs: "Blogs",
-      cookies: "Cookies", copyright: "Todos los derechos reservados.", tagline: "Proteja su privacidad con conexiones seguras y cifradas y acceda a internet global con Blue VPN."
+      cookies: "Cookies", copyright: "Todos los derechos reservados.", tagline: "Proteja su privacidad con conexiones seguras y cifradas y acceda a internet global con Fast Vpn Turbo Ip Changer."
     }
   },
   pt: {
     nav: { features: "Recursos", blogs: "Blogs", download: "Baixar", login: "Entrar" },
     hero: {
       badge: "Apresentando",
-      title: "Blue VPN",
+      title: "Fast Vpn Turbo Ip Changer",
       subtitle: "Fique privado online, proteja cada conexão e desbloqueie o mundo.",
       serverList: "Lista de Servidores",
       protection: "Proteção",
@@ -273,7 +273,7 @@ const translations: Record<Language, Translations> = {
     },
     blog: {
       badge: "Mantenha-se atualizado e seguro",
-      title: "Blogs Blue VPN",
+      title: "Blogs Fast Vpn Turbo Ip Changer",
       subtitle: "Insights, dicas de segurança e atualizações do mundo da privacidade digital.",
       readArticle: "Ler Artigo",
       backToBlogs: "Voltar para Blogs",
@@ -285,14 +285,14 @@ const translations: Record<Language, Translations> = {
       product: "Produto", useCases: "Casos de uso", legal: "Legal", features: "Recursos",
       downloadiOS: "Baixar iOS", streaming: "VPN Streaming", gaming: "VPN Jogos", travel: "VPN Viagem",
       remoteWork: "VPN Trabalho Remoto", privacy: "Política de Privacidade", terms: "Termos de Serviço", blogs: "Blogs",
-      cookies: "Cookies", copyright: "Todos os direitos reservados.", tagline: "Proteja sua privacidade com conexões seguras e criptografadas e acesse a internet global com Blue VPN."
+      cookies: "Cookies", copyright: "Todos os direitos reservados.", tagline: "Proteja sua privacidade com conexões seguras e criptografadas e acesse a internet global com Fast Vpn Turbo Ip Changer."
     }
   },
   ja: {
     nav: { features: "機能", blogs: "ブログ", download: "ダウンロード", login: "ログイン" },
     hero: {
       badge: "ご紹介",
-      title: "Blue VPN",
+      title: "Fast Vpn Turbo Ip Changer",
       subtitle: "オンラインでプライバシーを守り、すべての接続を保護し、世界を解放します。",
       serverList: "サーバーリスト",
       protection: "保護",
@@ -316,7 +316,7 @@ const translations: Record<Language, Translations> = {
     },
     blog: {
       badge: "最新情報を入手して安全に",
-      title: "Blue VPN ブログ",
+      title: "Fast Vpn Turbo Ip Changer ブログ",
       subtitle: "デジタルプライバシーの世界からの洞察、セキュリティのヒント、および更新情報。",
       readArticle: "記事を読む",
       backToBlogs: "ブログに戻る",
@@ -328,7 +328,7 @@ const translations: Record<Language, Translations> = {
       product: "製品", useCases: "使用例", legal: "法的情報", features: "機能",
       downloadiOS: "iOS版をダウンロード", streaming: "ストリーミング用VPN", gaming: "ゲーム用VPN", travel: "旅行用VPN",
       remoteWork: "リモートワーク用VPN", privacy: "プライバシーポリシー", terms: "利用規約", blogs: "ブログ",
-      cookies: "クッキー", copyright: "全著作権所有。", tagline: "Blue VPNで安全な暗号化接続によりプライバシーを保護し、グローバルインターネットにアクセスしましょう。"
+      cookies: "クッキー", copyright: "全著作権所有。", tagline: "Fast Vpn Turbo Ip Changerで安全な暗号化接続によりプライバシーを保護し、グローバルインターネットにアクセスしましょう。"
     }
   },
 };

@@ -75,7 +75,7 @@ export function StreamingVPN() {
               transition={{ delay: 0.1 }}
               className="text-lg text-slate-400 leading-relaxed max-w-2xl font-[Space_Grotesk]"
             >
-              Blue VPN is optimized for streaming, giving you access to global content libraries with the fastest speeds and most reliable connections.
+              Fast Vpn Turbo Ip Changer is optimized for streaming, giving you access to global content libraries with the fastest speeds and most reliable connections.
             </motion.p>
           </div>
 

@@ -25,7 +25,7 @@ export function CTA() {
                     Ready to Get Started?
                 </h2>
                 <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto font-[Space_Grotesk] text-[16px]">
-                    Take control of your privacy — join users worldwide trusting Blue VPN for secure, private browsing every day.
+                    Take control of your privacy — join users worldwide trusting Fast Vpn Turbo Ip Changer for secure, private browsing every day.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

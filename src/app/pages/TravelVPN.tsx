@@ -85,7 +85,7 @@ export function TravelVPN() {
               transition={{ delay: 0.1 }}
               className="text-lg text-slate-400 leading-relaxed max-w-2xl font-[Space_Grotesk]"
             >
-              Whether you're on business or vacation, Blue VPN keeps you safe and connected with servers in over 150 countries.
+              Whether you're on business or vacation, Fast Vpn Turbo Ip Changer keeps you safe and connected with servers in over 150 countries.
             </motion.p>
           </div>
 

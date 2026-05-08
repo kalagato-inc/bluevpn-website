@@ -7,7 +7,7 @@ Hiring: https://vpn-blue.info/careers
 
 # Our security vulnerability disclosure policy
 
-Thank you for your interest in the security of Blue VPN.
+Thank you for your interest in the security of Fast Vpn Turbo Ip Changer.
 If you discover a security vulnerability, please report it to us at security@vpn-blue.info.
 
 We appreciate responsible disclosure and will respond to your report promptly.

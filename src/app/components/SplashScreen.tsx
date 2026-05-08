@@ -27,7 +27,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
     >
       <div className="font-['Space_Grotesk'] font-medium text-[38.88px] leading-[38.88px] tracking-[-0.972px]">
         <EncryptedText
-          text="Welcome to Blue VPN"
+          text="Welcome to Fast Vpn Turbo Ip Changer"
           revealDelayMs={60}
           encryptedClassName="text-slate-700"
           revealedClassName="text-[rgba(59,136,208,0.94)]"

@@ -5,7 +5,7 @@ import { schemaTypes } from './schema'
 
 export default defineConfig({
   name: 'default',
-  title: 'Blue VPN Blog',
+  title: 'Fast Vpn Turbo Ip Changer Blog',
 
   projectId: 'c2x83nrr',
   dataset: 'production',
