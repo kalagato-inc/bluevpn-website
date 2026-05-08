@@ -68,7 +68,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-slate-500 text-sm font-[Space_Grotesk]">
-                © {newDAte().getFullYear()} Blue VPN. {t.footer.copyright}
+                © {newDAte().getFullYear()} Fast Vpn Turbo Ip Changer. {t.footer.copyright}
             </p>
             <div className="flex items-center gap-6">
                 <Link to="/privacy" className="text-slate-500 hover:text-white text-sm transition-colors font-[Space_Grotesk]">{t.footer.privacy}</Link>

@@ -10,20 +10,20 @@ const faqs = [
     answer: "A VPN (Virtual Private Network) encrypts your internet connection, ensuring your online activity remains private and secure. It protects you from hackers on public Wi-Fi and allows you to access content without geo-restrictions."
   },
   {
-    question: "Does Blue VPN keep logs of my activity?",
-    answer: "No, Blue VPN has a strict no-logs policy. We do not track, collect, or share your browsing history, ensuring complete anonymity while you browse."
+    question: "Does Fast Vpn Turbo Ip Changer keep logs of my activity?",
+    answer: "No, Fast Vpn Turbo Ip Changer has a strict no-logs policy. We do not track, collect, or share your browsing history, ensuring complete anonymity while you browse."
   },
   {
-    question: "Can Blue VPN access geo-restricted content?",
-    answer: "Yes! With servers across the globe, Blue VPN allows you to bypass geographical restrictions and access your favorite streaming services, websites, and apps from anywhere."
+    question: "Can Fast Vpn Turbo Ip Changer access geo-restricted content?",
+    answer: "Yes! With servers across the globe, Fast Vpn Turbo Ip Changer allows you to bypass geographical restrictions and access your favorite streaming services, websites, and apps from anywhere."
   },
   {
-    question: "How does Blue VPN protect me on public Wi-Fi?",
+    question: "How does Fast Vpn Turbo Ip Changer protect me on public Wi-Fi?",
     answer: "We use military-grade AES encryption to secure your data. This means even if you're on an unsecured public network, hackers cannot intercept or read your information."
   },
   {
     question: "Will using a VPN slow down my internet?",
-    answer: "While all VPNs may cause a slight decrease in speed due to encryption, Blue VPN is optimized for speed, ensuring minimal impact so you can stream and game without lag."
+    answer: "While all VPNs may cause a slight decrease in speed due to encryption, Fast Vpn Turbo Ip Changer is optimized for speed, ensuring minimal impact so you can stream and game without lag."
   }
 ];
 
@@ -38,7 +38,7 @@ export function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-slate-400 font-[Space_Grotesk]">
-            Everything you need to know about Blue VPN and online privacy.
+            Everything you need to know about Fast Vpn Turbo Ip Changer and online privacy.
           </p>
         </div>
 

@@ -31,7 +31,7 @@ export function GamingVPN() {
     {
       icon: TrendingDown,
       title: "Bypass ISP Throttling",
-      description: "Many ISPs throttle gaming traffic during peak hours. Blue VPN prevents this, ensuring consistent speeds 24/7."
+      description: "Many ISPs throttle gaming traffic during peak hours. Fast Vpn Turbo Ip Changer prevents this, ensuring consistent speeds 24/7."
     },
     {
       icon: Gamepad2,
@@ -76,7 +76,7 @@ export function GamingVPN() {
               transition={{ delay: 0.1 }}
               className="text-lg text-slate-400 leading-relaxed max-w-2xl font-[Space_Grotesk]"
             >
-              Blue VPN is engineered for competitive gaming. Get lower ping, stronger protection, and access to global gaming servers.
+              Fast Vpn Turbo Ip Changer is engineered for competitive gaming. Get lower ping, stronger protection, and access to global gaming servers.
             </motion.p>
           </div>
 

@@ -27,7 +27,7 @@ export function SEO({
   section,
   tags = [],
 }: SEOProps) {
-  const siteTitle = 'Blue VPN';
+  const siteTitle = 'Fast Vpn Turbo Ip Changer';
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
   const defaultDescription = 'Fast, secure, and private VPN service. Protect your online privacy and access content worldwide.';
 
@@ -114,7 +114,7 @@ export function BlogPostSEO({ post }: BlogPostSEOProps) {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Blue VPN',
+      name: 'Fast Vpn Turbo Ip Changer',
       logo: {
         '@type': 'ImageObject',
         url: 'https://vpn-blue.info/logo.png',

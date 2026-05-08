@@ -93,7 +93,7 @@ export function RemoteWorkVPN() {
               transition={{ delay: 0.1 }}
               className="text-lg text-slate-400 leading-relaxed max-w-2xl font-[Space_Grotesk]"
             >
-              Blue VPN provides the security and reliability remote workers need to stay productive and protect sensitive business data.
+              Fast Vpn Turbo Ip Changer provides the security and reliability remote workers need to stay productive and protect sensitive business data.
             </motion.p>
           </div>
 
@@ -227,7 +227,7 @@ export function RemoteWorkVPN() {
             className="p-12 rounded-[48px] border border-white/10 bg-gradient-to-br from-[#0B0F17] to-[#0B0F17]/50"
           >
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center font-[Space_Grotesk]">
-              Why Remote Workers Choose Blue VPN
+              Why Remote Workers Choose Fast Vpn Turbo Ip Changer
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-300">
