@@ -19927,3 +19927,52 @@ tapmind.com, TMP10358, DIRECT
 video.unrulymedia.com, 815095640, RESELLER
 MANAGERDOMAIN=tapmind.com
 google.com, pub-6283046720702591, DIRECT, f08c47fec0942fa0
+rhythmone.com, 3634565696, RESELLER, a670c89d4a324e47
+video.unrulymedia.com, 3634565696, RESELLER
+datawrkz.com, 2005, DIRECT
+adform.com, 3400, RESELLER, 9f5210a2f0999e32
+ogury.com, 065d4ff5-a269-44be-9634-9d4d7af2dfc3, RESELLER
+onlinemediasolutions.com, 23120, RESELLER, b3868b187e4b6402
+pubmatic.com, 163117, RESELLER, 5d62403b186f2ace
+improvedigital.com, 2862, RESELLER
+pinklion.io, 190976894, RESELLER
+adgrid.io, 34235, RESELLER
+adyoulike.com, 7fce09b19c2cf807053ec337ae49a5f0, RESELLER
+appnexus.com, 17383, RESELLER
+improvedigital.com, 2805, RESELLER
+openx.com, 564974596, RESELLER, 6a698e2ec38604c6
+pubx.ai, 134040580082541, RESELLER
+qntv.io, 11710526, DIRECT
+rubiconproject.com, 28263, RESELLER, 0bfd66d529a55807
+selectmedia.asia, 74lopb2c817311568f2r88b, RESELLER, e365c871a27c655d
+tredio.io, 357a6fdf7642bf815a88822c447d9dc437066, DIRECT
+triplelift.com, 14713, RESELLER, 6c33edb13117fd86
+wecallmedia.com, 301019, RESELLER
+zetaglobal.net, 642, RESELLER
+admanmedia.com, 2385, RESELLER
+bluexad.ai, 2049445185468764160, RESELLER
+brightmountainmedia.com, 268660, RESELLER
+conversantmedia.com, 101057, RESELLER, 03113cd04947736d
+dauup.com, 34200, RESELLER, 4daba13e2b0dfd92
+display.io, 236055, RESELLER
+joju.ai, 3497175813, RESELLER
+loopme.com, 19940, RESELLER, 6c8d5f95897a5a3b
+ogury.com, 04d3d80a-d397-4e29-8ae0-648512b9327f, RESELLER
+revealon.media, 18053, RESELLER
+sharethrough.com, 5451, RESELLER, d53b998a7bd4ecd2
+sharethrough.com, VQlYJeXR, RESELLER, d53b998a7bd4ecd2
+showheroes.com, 7349, RESELLER
+smartadserver.com, 2161, RESELLER, 060d053dcf45cbf3
+spinx.biz, 1373698882, RESELLER
+targetbetter.com, 2082020, RESELLER
+triplelift.com, 14680, RESELLER, 6c33edb13117fd86
+vidazoo.com, 646ea5474754839109c9f233, RESELLER, b6ada874b4d7d0b2
+vidazoo.com, 682c2398788ffecb2b2afc37, RESELLER, b6ada874b4d7d0b2
+viralize.com, 7349, RESELLER
+zetaglobal.net, 748, RESELLER
+blasto.ai, 585, RESELLER, 7e936b1feafdaa61
+media.net, 8CUIQQN13, RESELLER
+richaudience.com, h44H1yPBlk, RESELLER
+gamezop.com, 23310589473, DIRECT
+adster.tech, 23061147286, DIRECT
+rtbdemand.com,22894963530, DIRECT
